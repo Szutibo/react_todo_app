@@ -1,0 +1,49 @@
+.errorTextWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0eee7bd;
+    width: 55%;
+    height: 300px;
+    padding: 2.5rem;
+    border-radius: 10px;
+}
+
+.errorTextWrapper div {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 5rem;
+}
+
+.errorTextWrapper button {
+    background-color: #ef3c33c7;
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.errorTextWrapper button:hover {
+    cursor: pointer;
+    scale: 1.05;
+}
+
+.errorTextWrapper button:active {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .errorTextWrapper {
+        width: 80%;
+    }
+
+    .errorTextWrapper div {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .errorTextWrapper {
+        width: 90%;
+    }
+}

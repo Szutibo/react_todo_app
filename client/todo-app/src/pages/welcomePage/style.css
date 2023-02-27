@@ -1,0 +1,138 @@
+.welcomePageWrapper {
+    width: 55%;
+    background-color: #ffcf3276;
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.welcomePageHeader {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #eae7dd9c;
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+    line-height: 3.25rem;
+}
+
+.welcomePageHeader h1 {
+    font-size: 2.25rem;
+    position: relative;
+}
+
+.welcomePageHeader h1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transform: translateX(-50%);
+}
+
+.welcomePageHeader h2 {
+    font-size: 1.75rem;
+}
+
+.userWidgets {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.newUserWrapper {
+    position: relative;
+    margin: 1rem;
+}
+
+.newUserIcon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #eae7dd9c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.newUserIcon:hover {
+    border: 2px solid orange;
+    scale: 1.1;
+}
+
+.newUserIcon:active {
+    transform: translateY(-3px);
+}
+
+.quoteBox {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.quoteWrapper {
+    background-color: #eae7dd9c;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.quote {
+    font-size: 1.75rem;
+}
+
+.quote span {
+    font-style: italic;
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .welcomePageWrapper {
+        width: 65%;
+    }
+
+    .welcomePageHeader {
+        margin-bottom: 2rem;
+    }
+
+    .welcomePageHeader h1 {
+        font-size: 1.75rem;
+    }
+
+    .welcomePageHeader h2 {
+        font-size: 1.5rem;
+    }
+
+    .quote {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcomePageWrapper {
+        width: 85%;
+    }
+
+    .welcomePageHeader h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcomePageHeader h2 {
+        font-size: 1.25rem;
+    }
+
+    .quote {
+        font-size: 1.25rem;
+    }
+}

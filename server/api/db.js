@@ -20,6 +20,18 @@ db.users = () => {
     });
 };
 
+// Get one user
+db.user = (name) => {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * FROM users WHERE username = ?', [name], (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(result);
+        })
+    });
+};
+
 // Get one user's tasks
 db.oneUser = (id) => {
     return new Promise((resolve, reject) => {

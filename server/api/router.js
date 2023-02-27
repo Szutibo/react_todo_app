@@ -13,6 +13,17 @@ router.get('/users', async (req, res) => {
     }
 });
 
+// Get one user
+router.get('/user/:name', async (req, res) => {
+    try {
+        let result = await db.user(req.params.name);
+        res.json(result);
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+});
+
 // Get one user's tasks
 router.get('/:id', async (req, res) => {
     try {
