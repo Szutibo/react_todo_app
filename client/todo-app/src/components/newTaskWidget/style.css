@@ -1,7 +1,7 @@
 .newTaskWidgetWrapper {
     background-color: #eae7dd9c;
     width: 300px;
-    height: 120px;
+    height: 140px;
     display: flex;
     flex-direction: column;
     padding: 0.5rem 1rem;
@@ -32,7 +32,13 @@
     font-weight: 600;
 }
 
-.newTaskWidgetWrapper input {
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer input {
+    cursor: pointer;
     width: 65%;
     margin: 0.25rem 0;
     border-radius: 5px;
@@ -64,7 +70,7 @@
 @media (max-width: 1024px) {
     .newTaskWidgetWrapper {
         width: 275px;
-        height: 110px;
+        height: 130px;
     }
 
     .cancelButton {
@@ -81,7 +87,7 @@
 @media (max-width: 768px) {
     .newTaskWidgetWrapper {
         width: 240px;
-        height: 100px;
+        height: 120px;
         margin: 0.35rem 0.35rem;
         padding: 0.25rem 1rem;
     }

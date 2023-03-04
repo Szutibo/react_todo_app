@@ -8,7 +8,7 @@ import './style.css';
 import { useParams } from 'react-router-dom';
 import { green, red } from '@mui/material/colors';
 
-const TodoWidget = ({ task, setTasks, tasks, modifiedTask, setModifiedTask, toggleCompletedValues }) => {
+const TodoWidget = ({ task, setTasks, tasks, modifiedTask, setModifiedTask, errors, buttonDisable }) => {
     const { id: userId } = useParams();
     const { title, completed, due_date, id } = task;
     const [extend, setExtend] = useState(false);
@@ -18,7 +18,7 @@ const TodoWidget = ({ task, setTasks, tasks, modifiedTask, setModifiedTask, togg
         setModifiedTask({
             title: title,
             completed: completed,
-            date: due_date,
+            due_date: due_date,
             id: id
         });
     }, [extend]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -52,7 +52,7 @@ const TodoWidget = ({ task, setTasks, tasks, modifiedTask, setModifiedTask, togg
     }
 
     return (
-        <div className='todoWidgetWrapper' onClick={() => console.log(completedStatus)}>
+        <div className='todoWidgetWrapper'>
             {
                 !extend
                 && <>
@@ -77,9 +77,16 @@ const TodoWidget = ({ task, setTasks, tasks, modifiedTask, setModifiedTask, togg
             {
                 extend
                 && <div className='modifyBox'>
-                    <input type="text" placeholder={title} onChange={(e) => setModifiedTask({ ...modifiedTask, title: e.target.value })} />
-                    <input type="date" defaultValue={due_date} onChange={(e) => setModifiedTask({ ...modifiedTask, date: e.target.value })} />
+                    <div className='inputWrapper'>
+                        <input type="text" placeholder={title} onChange={(e) => setModifiedTask({ ...modifiedTask, title: e.target.value })} />
+                        <label className='error-container'>{errors.title}</label>
+                    </div>
+                    <div className='inputWrapper'>
+                        <input type="date" defaultValue={due_date} onChange={(e) => setModifiedTask({ ...modifiedTask, due_date: e.target.value })} />
+                        <label className='error-container'>{errors.date}</label>
+                    </div>
                     <button
+                        disabled={buttonDisable}
                         onClick={() => {
                             setExtend(!extend);
                             updatedTask(modifiedTask);

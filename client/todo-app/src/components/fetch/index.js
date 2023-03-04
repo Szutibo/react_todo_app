@@ -20,11 +20,11 @@ export const createUser = async (userData, set, navigation) => {
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
-            userName: userData,
+            username: userData,
         })
     });
     if (createdUser.status === 200) {
-        const newUser = await fetch(`http://localhost:${port}/api/user/${userData}`);
+        const newUser = await fetch(`http://localhost:${port}/api/user/name/${userData}`);
         const data = await newUser.json();
         set({ id: data[0].id, username: data[0].userName });
         navigation(`/todos/${data[0].id}`);
@@ -115,14 +115,20 @@ export const completeTask = (id, set, userId) => {
 };
 
 export const updateTask = async (taskData) => {
-    console.log(taskData);
+    const { title, completed, due_date, id } = taskData;
+
     const updatedTask = await fetch(`http://localhost:3001/api`, {
         method: 'PUT',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(taskData),
+        body: JSON.stringify({
+            title: title,
+            completed: completed,
+            dueDate: due_date,
+            id: id,
+        }),
     });
     if (updatedTask.status === 200) {
         const data = await updatedTask.json();

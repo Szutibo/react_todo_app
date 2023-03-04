@@ -14,7 +14,7 @@ router.get('/users', async (req, res) => {
 });
 
 // Get one user by name
-router.get('/user/:name', async (req, res) => {
+router.get('/user/name/:name', async (req, res) => {
     try {
         let result = await db.user(req.params.name);
         res.json(result);

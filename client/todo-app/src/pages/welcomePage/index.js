@@ -5,15 +5,32 @@ import UserWidget from '../../components/userWidget';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { DropdownMenu } from '../../components/dropdown';
 import './style.css';
+import { validateCreate } from '../../components/validation';
 
 const WelcomePage = ({ setSelectedUser, selectedUser }) => {
     const [usersList, setUsersList] = useState([]);
     const [expanded, setExpanded] = useState(false);
+    const [errors, setErrors] = useState([]);
+    const [createButtonDisabled, setCreateButtonDisabled] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
         getUsers(setUsersList);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+        setErrors(validateCreate(selectedUser));
+    }, [selectedUser]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+        buttonChecker();
+    }, [errors]); // eslint-disable-line react-hooks/exhaustive-deps
+
+
+    const buttonChecker = () => {
+        if (Object.keys(errors).length > 0) setCreateButtonDisabled(true);
+        else setCreateButtonDisabled(false);
+    };
 
     return (
         <div className='welcomePageWrapper'>
@@ -49,6 +66,8 @@ const WelcomePage = ({ setSelectedUser, selectedUser }) => {
                             setExpanded={setExpanded}
                             setSelectedUser={setSelectedUser}
                             selectedUser={selectedUser}
+                            errors={errors}
+                            createButtonDisabled={createButtonDisabled}
                         />
                     }
                 </div>

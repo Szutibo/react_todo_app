@@ -4,7 +4,7 @@ import { RxCrossCircled } from 'react-icons/rx';
 import { createUser } from '../fetch';
 import './style.css';
 
-export function DropdownMenu({ setExpanded, setSelectedUser, selectedUser }) {
+export function DropdownMenu({ setExpanded, setSelectedUser, selectedUser, errors, createButtonDisabled }) {
     const navigate = useNavigate();
 
     return (
@@ -15,8 +15,16 @@ export function DropdownMenu({ setExpanded, setSelectedUser, selectedUser }) {
                     <RxCrossCircled />
                 </div>
             </div>
-            <input type="text" onChange={(e) => setSelectedUser({ username: e.target.value })} />
+            <div className='inputBox'>
+                <input
+                    type="text"
+                    onChange={(e) => setSelectedUser({ username: e.target.value })}
+                    className={errors.name && 'input-error'}
+                />
+                <label className='error-container'>{errors.name}</label>
+            </div>
             <button
+                disabled={createButtonDisabled}
                 onClick={() => {
                     createUser(selectedUser.username, setSelectedUser, navigate);
                     setExpanded(false);
