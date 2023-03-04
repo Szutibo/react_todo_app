@@ -1,0 +1,138 @@
+.todoWidgetWrapper {
+    background-color: #eae7dd9c;
+    width: 300px;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    margin: 0.5rem 1rem;
+}
+
+.radioInput {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.todoWidgetInfoBox {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5rem;
+}
+
+.todoWidgetInfoTitle {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.todoWidgetInfoDate {
+    font-weight: 600;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.modifyButton,
+.deleteButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: white;
+    margin: 5px;
+    font-size: 1.35rem;
+}
+
+.modifyButton:hover,
+.deleteButton:hover {
+    border: 2px solid orange;
+}
+
+.modifyButton:active,
+.deleteButton:active {
+    transform: translateY(-3px);
+}
+
+.modifyBox {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.25rem 0;
+    padding-left: 0.5rem;
+}
+
+.modifyBox input {
+    width: 100%;
+    margin: 0.25rem 0;
+    border-radius: 5px;
+}
+
+.modifyBox button {
+    width: 80px;
+    margin-top: 0.2rem;
+    border-radius: 5px;
+    padding: 2px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: #00dd0088;
+}
+
+.modifyBox button:hover {
+    border: 2px solid green;
+}
+
+.modifyBox button:active {
+    transform: translateY(-2px);
+    background-color: #00dd00;
+}
+
+@media (max-width: 1024px) {
+    .todoWidgetWrapper {
+        width: 275px;
+        height: 110px;
+        margin: 0.35rem 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .todoWidgetWrapper {
+        width: 240px;
+        height: 100px;
+        margin: 0.35rem 0.35rem;
+    }
+
+    .todoWidgetInfoBox {
+        margin: 0 0.25rem;
+    }
+
+    .todoWidgetInfoTitle {
+        font-size: 0.85rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .todoWidgetInfoDate {
+        font-size: 0.75rem;
+    }
+
+    .modifyButton,
+    .deleteButton {
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        margin: 3px;
+        font-size: 1.25rem;
+    }
+}

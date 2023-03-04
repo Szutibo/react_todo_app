@@ -33,10 +33,10 @@ connection.query(
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     completed BOOLEAN NOT NULL DEFAULT false,
-    due_date DATE NOT NULL,
+    due_date TEXT NOT NULL,
     userId INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (userId) REFERENCES Users(id)
+    FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE
   )`,
   (err) => {
     if (err) throw err;
@@ -46,7 +46,7 @@ connection.query(
 
 // Create users and tasks
 for (let i = 0; i < data.length; i++) {
-  connection.query(`INSERT INTO TodoDB.Users (username) VALUES ("${data[i].userName}")`, (error, results) => {
+  connection.query(`INSERT INTO TodoDB.Users (username) VALUES ("${data[i].username}")`, (error, results) => {
     if (error) {
       console.error('Error inserting new user:', error);
       return;

@@ -1,0 +1,124 @@
+.navbarWrapper {
+    width: 100%;
+    background-color: #ffcf32ca;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userBox {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.welcomeBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.welcomeBox h3 {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.infoBox {
+    margin-left: 0.5rem;
+}
+
+.completedTodos,
+.activeTodos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0.5rem;
+    border: 2px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.completedTodos p,
+.activeTodos p {
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.completedTodos label,
+.activeTodos label {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.completedTodos label {
+    color: green;
+}
+
+.activeTodos label {
+    color: orangered;
+}
+
+.logoutBox {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 2.5rem;
+    margin-right: 1rem;
+    background-color: #eae7dd9c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.logoutBox:hover {
+    border: 2px solid orange;
+    scale: 1.1;
+    box-shadow: 0px 0px 3px 3px orange;
+}
+
+.logoutBox:active {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .welcomeBox h3 {
+        font-size: 2rem;
+    }
+
+    .completedTodos,
+    .activeTodos {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbarWrapper {
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .welcomeBox {
+        margin: 0 0.5rem;
+    }
+
+    .welcomeBox h3 {
+        font-size: 1.5rem;
+    }
+
+    .logoutBox {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 2rem;
+        margin-right: 0.5rem;
+        background-color: #eae7dd9c;
+        border-radius: 50%;
+        padding-right: 5px;
+    }
+}

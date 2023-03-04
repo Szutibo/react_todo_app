@@ -15,12 +15,11 @@ export function DropdownMenu({ setExpanded, setSelectedUser, selectedUser }) {
                     <RxCrossCircled />
                 </div>
             </div>
-            <input type="text" onChange={(e) => setSelectedUser({ userName: e.target.value })} />
+            <input type="text" onChange={(e) => setSelectedUser({ username: e.target.value })} />
             <button
                 onClick={() => {
-                    createUser(selectedUser.userName, setSelectedUser);
+                    createUser(selectedUser.username, setSelectedUser, navigate);
                     setExpanded(false);
-                    selectedUser && navigate('/todos');
                 }}
             >Create user!</button>
         </div>

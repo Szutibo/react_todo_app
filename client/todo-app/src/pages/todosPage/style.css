@@ -1,0 +1,68 @@
+.todosPageWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todosWrapper {
+    width: 75%;
+    min-height: 400px;
+    margin-top: 3rem;
+    background-color: #ffcf3276;
+    border-radius: 10px;
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.todosContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.newTaskWrapper {
+    margin: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #eae7dd9c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.newTaskWrapper:hover {
+    border: 2px solid orange;
+}
+
+.newTaskWrapper:active {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 1024px) {
+    .todosWrapper {
+        width: 85%;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .todosWrapper {
+        width: 90%;
+        margin-top: 1.75rem;
+        padding: 1rem 0.5rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .todosWrapper {
+        width: 80%;
+        padding: 1rem 0.75rem;
+    }
+}

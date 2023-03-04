@@ -8,23 +8,10 @@
 .App {
   background-image: url('../public/assets/bg2.jpg');
   background-size: cover;
-  background-position: bottom;
   min-height: 100vh;
-  padding: 2rem;
+  padding-top: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
   transition: 0.4s ease;
-}
-
-@media (max-width: 1024px) {
-  .App {
-    padding: 2rem 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .App {
-    padding: 2rem 0.5rem;
-  }
 }

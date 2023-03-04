@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 function App() {
   const [selectedUser, setSelectedUser] = useState({
-    userName: '',
+    username: '',
     id: null,
   });
 
@@ -19,8 +19,8 @@ function App() {
       <BrowserRouter >
         <Routes >
           <Route path='/' element={<WelcomePage selectedUser={selectedUser} setSelectedUser={setSelectedUser} />} />
-          <Route path='/home' element={<WelcomePage />} />
-          <Route path='/todos' element={<TodosPage selectedUser={selectedUser} />} />
+          <Route path='/home' element={<WelcomePage selectedUser={selectedUser} setSelectedUser={setSelectedUser} />} />
+          <Route path='/todos/:id' element={<TodosPage selectedUser={selectedUser} setSelectedUser={setSelectedUser} />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

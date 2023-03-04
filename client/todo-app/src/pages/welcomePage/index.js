@@ -6,11 +6,10 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { DropdownMenu } from '../../components/dropdown';
 import './style.css';
 
-const WelcomePage = (props) => {
+const WelcomePage = ({ setSelectedUser, selectedUser }) => {
     const [usersList, setUsersList] = useState([]);
     const [expanded, setExpanded] = useState(false);
     const navigate = useNavigate();
-    const { setSelectedUser, selectedUser } = props;
 
     useEffect(() => {
         getUsers(setUsersList);
@@ -24,23 +23,26 @@ const WelcomePage = (props) => {
             </div>
             <div className='userWidgets'>
                 {
-                    usersList.length !== 0
+                    usersList
                     && usersList.map((user) => (
                         <div
                             key={user.id}
                             onClick={() => {
-                                setSelectedUser({ id: user.id, userName: user.username });
-                                navigate('/todos')
+                                setSelectedUser({ id: user.id, username: user.username });
+                                navigate(`/todos/${user.id}`);
                             }}
                         >
-                            <UserWidget userName={user.username} id={user.id} />
+                            <UserWidget username={user.username} id={user.id} />
                         </div>
                     ))
                 }
                 <div className='newUserWrapper'>
-                    <div className='newUserIcon' onClick={() => setExpanded(true)}>
-                        <AiOutlinePlusCircle />
-                    </div>
+                    {
+                        !expanded
+                        && <div className='newUserIcon' onClick={() => setExpanded(true)}>
+                            <AiOutlinePlusCircle />
+                        </div>
+                    }
                     {
                         expanded
                         && <DropdownMenu

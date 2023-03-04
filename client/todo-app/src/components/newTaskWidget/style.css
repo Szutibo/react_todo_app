@@ -1,0 +1,103 @@
+.newTaskWidgetWrapper {
+    background-color: #eae7dd9c;
+    width: 300px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    margin: 0.5rem 1rem;
+    position: relative;
+}
+
+.cancelButton {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.75rem;
+    font-size: 1.75rem;
+}
+
+.cancelButton:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.cancelButton:active {
+    transform: translateY(-2px);
+}
+
+.newTaskWidgetWrapper p {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.newTaskWidgetWrapper input {
+    width: 65%;
+    margin: 0.25rem 0;
+    border-radius: 5px;
+}
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonContainer button {
+    border-radius: 5px;
+    padding: 2px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: #00dd0088;
+}
+
+.buttonContainer button:hover {
+    border: 2px solid green;
+}
+
+.buttonContainer button:active {
+    transform: translateY(-2px);
+    background-color: #00dd00;
+}
+
+@media (max-width: 1024px) {
+    .newTaskWidgetWrapper {
+        width: 275px;
+        height: 110px;
+    }
+
+    .cancelButton {
+        right: 0.5rem;
+        top: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .newTaskWidgetWrapper p {
+        margin-top: 0.35rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .newTaskWidgetWrapper {
+        width: 240px;
+        height: 100px;
+        margin: 0.35rem 0.35rem;
+        padding: 0.25rem 1rem;
+    }
+
+    .cancelButton {
+        position: absolute;
+        right: 0.35rem;
+        top: 0.35rem;
+        font-size: 1.25rem;
+    }
+
+    .newTaskWidgetWrapper p {
+        margin-top: 0.25rem;
+    }
+
+    .newTaskWidgetWrapper input {
+        margin: 0.2rem 0;
+    }
+}

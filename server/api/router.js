@@ -13,10 +13,21 @@ router.get('/users', async (req, res) => {
     }
 });
 
-// Get one user
+// Get one user by name
 router.get('/user/:name', async (req, res) => {
     try {
         let result = await db.user(req.params.name);
+        res.json(result);
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+});
+
+// Get one user by ID
+router.get('/user/id/:id', async (req, res) => {
+    try {
+        let result = await db.userById(req.params.id);
         res.json(result);
     } catch (e) {
         console.log(e);
@@ -61,6 +72,17 @@ router.post('/create/task', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         let result = await db.deleteTask(req.params.id);
+        res.json(result);
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+});
+
+// Complete task
+router.put('/complete/:id', async (req, res) => {
+    try {
+        let result = await db.completeTask(req.params.id);
         res.json(result);
     } catch (e) {
         console.log(e);

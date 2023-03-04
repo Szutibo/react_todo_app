@@ -1,6 +1,6 @@
 const initialData = [
     {
-        userName: 'John',
+        username: 'John',
         userId: 1,
         tasks: [
             {
@@ -26,7 +26,7 @@ const initialData = [
         ]
     },
     {
-        userName: 'Stephen',
+        username: 'Stephen',
         userId: 2,
         tasks: [
             {

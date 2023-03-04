@@ -20,10 +20,23 @@ db.users = () => {
     });
 };
 
-// Get one user
+// Get one user by name
 db.user = (name) => {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * FROM users WHERE username = ?', [name], (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(result);
+        })
+    });
+};
+
+
+// Get one user by ID
+db.userById = (id) => {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * FROM users WHERE id = ?', [id], (err, result) => {
             if (err) {
                 return reject(err);
             }
@@ -47,7 +60,7 @@ db.oneUser = (id) => {
 // Create new user
 db.createUser = (body) => {
     return new Promise((resolve, reject) => {
-        pool.query(`INSERT INTO users (username) VALUES ("${body.userName}")`, (err) => {
+        pool.query(`INSERT INTO users (username) VALUES ("${body.username}")`, (err) => {
             if (err) {
                 return reject(err);
             }
@@ -81,6 +94,18 @@ db.deleteTask = (id) => {
         })
     });
 }
+
+// Complete task
+db.completeTask = (id) => {
+    return new Promise((resolve, reject) => {
+        pool.query('UPDATE tasks SET completed = NOT completed WHERE id = ?', [id], (err) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve({ result: 'Update successful!' });
+        })
+    });
+};
 
 // Update task
 db.updateTask = (body) => {

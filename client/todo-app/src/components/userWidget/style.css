@@ -13,7 +13,6 @@
 
 .widgetWrapper:hover {
     border: 2px solid orange;
-    scale: 1.1;
 }
 
 .widgetWrapper:active {
